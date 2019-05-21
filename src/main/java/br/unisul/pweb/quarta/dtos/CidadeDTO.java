@@ -2,6 +2,8 @@ package br.unisul.pweb.quarta.dtos;
 
 import java.io.Serializable;
 
+import br.unisul.pweb.quarta.domain.Cidade;
+
 public class CidadeDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -11,6 +13,11 @@ public class CidadeDTO implements Serializable {
 	
 	public CidadeDTO() {
 		super();
+	}
+	
+	public CidadeDTO(Cidade obj) {
+		id = obj.getId();
+		nome = obj.getNome();
 	}
 
 	public Integer getId() {

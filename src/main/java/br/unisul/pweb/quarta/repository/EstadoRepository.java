@@ -13,4 +13,6 @@ public interface EstadoRepository extends JpaRepository<Estado, Integer> {
 
 	@Transactional(readOnly=true)
 	public List<Estado> findAllByOrderByNome();
+	
+	List<Estado> findDistinctByNomeContainingOrderByNome(String nome);
 }

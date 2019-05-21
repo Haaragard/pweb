@@ -43,4 +43,9 @@ public class CategoriaService {
 	public List<Categoria> findAll(){
 		return rep.findAll();
 	}
+	
+	//LISTA POR NOME(FILTRAR)
+	public List<Categoria> buscaPorNome(String nome) {
+		return rep.findDistinctByNomeContainingOrderByNome(nome);
+	}
 }
