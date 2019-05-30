@@ -16,7 +16,7 @@ public class ProdutoService {
 
 	@Autowired
 	private ProdutoRepository repo;
-
+	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
@@ -28,5 +28,12 @@ public class ProdutoService {
 	public List<Produto> search(String nome, List<Integer> ids) {
 		List<Categoria> categorias = categoriaRepository.findAllById(ids);
 		return repo.findDistinctByNomeContainingAndCategoriasIn(nome, categorias);
+	}
+	
+	//INSERIR
+	public Produto insert (Produto obj) {
+		obj.setId(null);
+		obj.setCategorias(obj.getCategorias());
+		return repo.save(obj);
 	}
 }
